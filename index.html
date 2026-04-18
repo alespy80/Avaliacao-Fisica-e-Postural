@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Curso de Avaliacao Fisica e Postural Profissional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro-overlay" class="intro-overlay">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-content">
+    <div class="intro-badge">Formacao Profissional</div>
+    <div class="intro-logo">&#9670; EvoAssess</div>
+    <h1 class="intro-titulo">Avaliacao Fisica<br/><span>e Postural</span></h1>
+    <p class="intro-sub">Do protocolo clinico ao laudo profissional</p>
+    <div class="intro-destaques">
+      <div class="intro-dest"><span>7</span>Modulos</div>
+      <div class="intro-dest"><span>35+</span>Aulas</div>
+      <div class="intro-dest"><span>7</span>Quizzes</div>
+      <div class="intro-dest"><span>1</span>Certificado</div>
+    </div>
+    <div class="intro-nome-wrap">
+      <input type="text" id="intro-nome-input" class="intro-nome-input" placeholder="Digite seu nome para comecar..."/>
+      <button class="intro-btn" onclick="iniciarCurso()">Comecar Agora &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-logo" onclick="abrirAdmin()" title="Admin">&#9670; EvoAssess</div>
+      <div class="header-centro">
+        <div class="header-progresso-wrap">
+          <div class="header-progresso-bar"><div class="header-progresso-fill" id="header-prog-fill"></div></div>
+          <span class="header-progresso-txt" id="header-prog-txt">0%</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="header-aluno" id="header-aluno-nome"></span>
+        <button class="btn-area-prof" onclick="abrirAreaProf()">&#128203; Ferramentas</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-titulo">Modulos do Curso</div>
+      <div id="nav-modulos"></div>
+    </nav>
+
+    <main class="main-content" id="main-content">
+      <div id="modulos-container"></div>
+    </main>
+  </div>
+</div>
+
+<!-- MODAL AREA PROFISSIONAL -->
+<div id="modal-area-prof" class="modal-overlay" style="display:none">
+  <div class="modal-box modal-large">
+    <div class="modal-header">
+      <h2>&#128203; Area do Profissional</h2>
+      <button class="modal-close" onclick="fecharModal('modal-area-prof')">&#10005;</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="mtab ativa" onclick="mudarModalTab('ficha')">Nova Ficha</button>
+      <button class="mtab" onclick="mudarModalTab('fichas-salvas')">Fichas Salvas</button>
+      <button class="mtab" onclick="mudarModalTab('calculadora')">&#129518; Calculadora</button>
+      <button class="mtab" onclick="mudarModalTab('protocolo')">Protocolo</button>
+    </div>
+    <div id="modal-tab-calculadora" class="modal-tab-content"></div>
+    <div id="modal-tab-ficha" class="modal-tab-content ativa"></div>
+    <div id="modal-tab-fichas-salvas" class="modal-tab-content"></div>
+    <div id="modal-tab-protocolo" class="modal-tab-content"></div>
+  </div>
+</div>
+
+<!-- MODAL ADMIN -->
+<div id="modal-admin" class="modal-overlay" style="display:none">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2>&#128274; Painel Admin</h2>
+      <button class="modal-close" onclick="fecharModal('modal-admin')">&#10005;</button>
+    </div>
+    <div id="admin-content"></div>
+  </div>
+</div>
+
+<!-- MODAL CERTIFICADO -->
+<div id="modal-cert" class="modal-overlay" style="display:none">
+  <div class="modal-box modal-cert-box">
+    <div class="modal-header">
+      <h2>&#127881; Certificado</h2>
+      <button class="modal-close" onclick="fecharModal('modal-cert')">&#10005;</button>
+    </div>
+    <div id="cert-content"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
